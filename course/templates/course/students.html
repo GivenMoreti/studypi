@@ -1,0 +1,13 @@
+{% extends 'course/base.html' %}
+
+{% block content%}
+<h1>here is our happy students</h1>
+{% for student in students %}
+<h1>{{student.student_name}}</h1>
+<p>{{student.username}}</p>
+<p>Date registered: {{student.date_added}}</p>
+<p>{{student.course_name}}</p>
+<p>currently doing year: {{student.study_level}}</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,11 +1,22 @@
 {% extends 'course/base.html' %}
 
 {% block content%}
-<h1>pease review our courses</h1>
-{% for course in courses %}
-<h1>{{course.course_name}}</h1>
-<p>{{course.course_description}}</p>
+<h1>Please review our courses.</h1>
+<div class="container">
+<div class="row">
+  {% for course in courses %}
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{course.course_url}}" alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title">{{course.course_name}}</h3>
+        <p class="card-text">{{course.course_description}}</p>
+        <p>Date added: {{course.date_added}}</p>
+        <a href="#" class="btn btn-primary">Register</a>
+      </div>
+    </div>
 
-{% endfor %}
-
-{% endblock %}
+  </div>
+  {% endfor %}
+</div>
+  {% endblock %}

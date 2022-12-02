@@ -16,6 +16,7 @@ COURSES =(
 
 class Course(models.Model):
     course_name = models.CharField(max_length=30,default=None,choices=COURSES)
+    course_url = models.CharField(max_length=8000,null=True)
     course_description = models.CharField(max_length=300,null=True)
     date_added = models.DateField(auto_now_add=True,null=True)
     date_edited = models.DateField(auto_now=True,null=True)
@@ -30,6 +31,7 @@ class Student(models.Model):
     username = models.CharField(max_length=30,null=True)
     date_added = models.DateField(auto_now_add=True,null=True)
     date_edited = models.DateField(auto_now=True,null=True)
+    image_url=models.CharField(max_length=8000,null=True)
     
     def __str__(self):
         return self.student_name    

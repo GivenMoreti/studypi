@@ -1,13 +1,30 @@
 {% extends 'course/base.html' %}
 
 {% block content%}
-<h1>here is our happy students</h1>
-{% for student in students %}
-<h1>{{student.student_name}}</h1>
-<p>{{student.username}}</p>
-<p>Date registered: {{student.date_added}}</p>
-<p>{{student.course_name}}</p>
-<p>currently doing year: {{student.study_level}}</p>
-{% endfor %}
+<div class="container">
+  <h1 id="meet">Meet Our Happy Students</h1>
+ 
+  <!-- cards -->
+  <div class="row">
+    {% for student in students %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{student.image_url}}" alt="Card image cap">
+        <div class="card-body">
+          <h3 class="card-title">{{student.student_name}}</h3>
+          <p class="card-text">@{{student.username}}</p>
+          <h3 class="card-text">Studying :{{student.course_name}}</h3>
+          <p>Date registered: {{student.date_added}}</p>
+          <p>currently doing year: {{student.study_level}}</p>
+          <a href="#" class="btn btn-primary">Active student</a>
+        </div>
+      </div>
 
-{% endblock %}
+    </div>
+    {% endfor %}
+  </div>
+
+  
+
+  {% endblock %}
+</div>

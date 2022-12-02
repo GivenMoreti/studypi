@@ -1,3 +1,18 @@
 {% block content %}
-<p>made with love</p>
-{%  endblock %}
+<p class="footer-text">Made with love</p>
+<div class="upbutton">
+  <button id="shootUp" class="btn btn-secondary">^</button>
+</div>
+
+{% endblock %}
+
+<script>
+  let upButton = document.getElementById("shootUp");
+  upButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+</script>

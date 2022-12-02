@@ -1,15 +1,25 @@
 {% block content %}
-<ul>
-  <li><a href="/"></a>Home</li>
-  <li><a href="/">Register</a></li>
-  <li><a href="/">Login</a></li>
-  <li><a href="/students">Students</a></li>
-  <li><a href="/courses">Courses</a></li>
-
-</ul>
-<div>
+<div class="header">
+  <ul>
+    <li><a href="/#"></a>Home</li>
+    <li><a href="/">Login</a></li>
+    <a href="{% url 'register-student' %}">Register</a>
+    <li><a href="{% url 'students' %}">Students</a></li>
+    <li><a href="{% url 'courses' %}">Courses</a></li>
+  </ul>
+</div>
+<div class="logo">
   <h1>Aerial vision</h1>
   <p>our vision is 4D</p>
 </div>
-<input type="text" name="" placeholder="search for courses" id="">
+<div class="search">
+  <input
+    type="text"
+    name=""
+    class="form-control"
+    placeholder=" Start searching..."
+    id=""
+  />
+</div>
+
 {% endblock %}

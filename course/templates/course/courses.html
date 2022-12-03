@@ -1,11 +1,10 @@
 {% extends 'course/base.html' %}
-
 {% block content%}
 <h1>Please review our courses.</h1>
 <div class="container">
 <div class="row">
   {% for course in courses %}
-  <div class="col">
+  <div class="col d-flex justify-content-center mb-2">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="{{course.course_url}}" alt="Card image cap">
       <div class="card-body">

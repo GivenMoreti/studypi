@@ -32,6 +32,9 @@ class Student(models.Model):
     date_added = models.DateField(auto_now_add=True,null=True)
     date_edited = models.DateField(auto_now=True,null=True)
     image_url=models.CharField(max_length=8000,null=True)
-    
+    private_code =models.IntergerField(max_length=6,null=True)
+
+
+
     def __str__(self):
         return self.student_name    

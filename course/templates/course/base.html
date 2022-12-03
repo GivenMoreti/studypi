@@ -16,8 +16,10 @@
     body {
       font-family: sans-serif, "Courier New", Courier, monospace;
       background-color: rgb(233, 233, 69);
+      background-color: skyblue;
       color: rgb(48, 46, 46);
-      opacity: 0.9;
+      /* opacity: 0.9; */
+      cursor: pointer;
     }
 
     .container {
@@ -28,11 +30,24 @@
       text-align: center;
     }
 
-    .header li {
+    .header li,a {
       list-style: none;
       display: inline-block;
-      margin: 0 80px;
+      margin: 0 20px;
+      text-decoration: none;
+      color: rgb(20, 20, 20);
+      margin-top: 2px;
     }
+    /* .header li,a:visited {
+      color: rgb(14, 13, 13);
+      text-decoration: none; 
+      font-size: 1.2rem;
+    } */
+    a:hover {
+      /* color:blue; */
+      font-weight: bolder;
+    }
+
 
     .logo {
       text-align: center;

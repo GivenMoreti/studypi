@@ -7,4 +7,6 @@ urlpatterns=[
     path('courses/',views.index,name='courses'),
     path('students/',views.student,name='students'),
     path('register-student/',views.registerStudent,name='register-student'),
+    path('edit-student/<str:pk>/',views.editStudent,name='edit-student'),
+    path('delete-profile/<str:pk>/',views.deleteProfile,name='delete-profile'),
 ]

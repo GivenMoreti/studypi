@@ -5,19 +5,20 @@
   <!-- cards -->
   <div class="row">
     {% for student in students %}
-    <div class="col d-flex justify-content-center mb-2">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{student.image_url}}" alt="Card image cap">
-        <div class="card-body">
-          <h3 class="card-title" max>{{student.student_name}}</h3>
-          <p class="card-text">@{{student.username}}</p>
-          <h5 class="card-text">Studying:{{student.course_name}}</h5>
+    <div class="col d-flex justify-content-center mb-2 ">
+      <div class="card shadow-lg rounded " id="card" style="width: 18rem;">
+        <img class="card-img-top" required src="{{student.image_url}}" alt="Card image cap">
+          <div class="card-body">
+          <h3 class="card-title" max_length="30" required>{{student.student_name}}</h3>
+          <p class="card-text"  max_length="30" required>@{{student.username}}</p>
+          <h5 class="card-text" max_length="30" required>Studying:{{student.course_name}}</h5>
           <p>Registered: {{student.date_added}}</p>
-          <p>Currently doing {{student.study_level}} year </p>
-          <a href="#" class="btn btn-primary">Active student</a>
-          <a href="{% url 'edit-student' student.id %}" class="btn btn-secondary">Edit</a>
-          <a href="{% url 'delete-profile' student.id %}" class="btn btn-danger">Deregister</a>
-
+          <p required>Currently doing {{student.study_level}} year </p>
+          <div class="card-buttons">
+          <a href="#" class="btn btn-primary btn-sm ">Active</a>
+          <a href="{% url 'edit-student' student.id %}" class="btn btn-secondary btn-sm ">Edit</a>
+          <a href="{% url 'delete-profile' student.id %}" class="btn btn-danger btn-sm ">Deregister</a>
+          </div>
         </div>
       </div>
 

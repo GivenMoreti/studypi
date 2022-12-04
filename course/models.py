@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 COURSE_LEVELS = (
@@ -11,6 +12,7 @@ COURSES =(
     ("IT","information Technology"),
     ("Azure","Azure"),
     ("AWS","AWS"),
+    ("AI","Artificial Intelligence"),
     
 )
 
@@ -32,9 +34,24 @@ class Student(models.Model):
     date_added = models.DateField(auto_now_add=True,null=True)
     date_edited = models.DateField(auto_now=True,null=True)
     image_url=models.CharField(max_length=8000,null=True)
-    private_code =models.IntergerField(max_length=6,null=True)
-
+    # image_file = models.ImageField(upload_to='images',null=True)
+    private_code =models.IntegerField(null=True,unique=True)
+    # the private code is for authenticating profile deletion
+    # but not yet activated
+    # ideally every profile must have a student number and private code to log in
 
 
     def __str__(self):
         return self.student_name    
+    
+class Messages(models.Model):
+    heading = models.CharField(max_length=300,null=True)
+    text_message =models.TextField(max_length=3000, null=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True,null=True)
+    date_edited = models.DateTimeField(auto_now=True,null=True)
+    
+    def __str__(self):
+        return self.heading
+
+

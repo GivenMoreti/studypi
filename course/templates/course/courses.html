@@ -11,11 +11,12 @@
         <h3 class="card-title">{{course.course_name}}</h3>
         <p class="card-text">{{course.course_description}}</p>
         <p>Date added: {{course.date_added}}</p>
-        <a href="#" class="btn btn-primary">Register</a>
+        <a href="{% url 'register-student' %}" class="btn btn-primary">Register</a>
       </div>
     </div>
 
   </div>
   {% endfor %}
 </div>
+
   {% endblock %}

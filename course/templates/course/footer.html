@@ -1,7 +1,9 @@
 {% block content %}
-<p class="footer-text">Made with love</p>
+
+<p class="footer-text mb-2">Made with love</p>
 <div class="upbutton">
   <button id="shootUp" class="btn btn-secondary">^</button>
+  <button id="change-bg" onclick="toggleMode()" class="btn btn-secondary">Change background</button>
 </div>
 
 {% endblock %}
@@ -15,4 +17,12 @@
       behavior: "smooth",
     });
   });
+
+// change background color
+function toggleMode(){
+  let mode = document.body;
+  mode.classList.toggle('dark-mode');
+}
+
+
 </script>

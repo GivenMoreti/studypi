@@ -1,11 +1,12 @@
 {% extends 'course/base.html' %}
 
 {% block content%}
+<div class="container" style="text-align:center ;margin-bottom: 50px;">
 <form method="POST">
   {% csrf_token %}
-  <p> Are you sure you want to deregister {{student.student_name}} ?</p>
+  <p id="confirm-p"> Are you sure you want to deregister {{student.student_name}} ?</p>
   <a href="{{ request.META.HTTP_REFERER}}">Go back</a>
   <input type="submit" class="btn btn-danger" value="Confirm"/>
 </form>
-
+</div>
 {% endblock %}

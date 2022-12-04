@@ -1,0 +1,17 @@
+{% extends 'course/base.html' %}
+{% block content%}
+
+<div class="container">
+  {% for userMessage in userMessages %}
+  <div class="texts-messages">
+    <p >@{{userMessage.user}}</p>
+    <p>Logged As: {{userMessage.heading}}</p>
+    <p class="text">Says: {{ userMessage.text_message}}.</p>
+    <p>sent:{{userMessage.date_added}}</p>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}

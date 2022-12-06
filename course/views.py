@@ -4,9 +4,13 @@ from django.contrib import messages
 from .models import Course
 from .models import Student
 # these are the user Messages that will be accessible upon login account
-from .models import Messages
+from .models import UserMessage
 # model forms imports
 from .forms import StudentForm
+from django.contrib.auth.decorators import login_required
+
+from .forms import UserMessageForm
+
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -32,6 +36,7 @@ def loginUser(request):
     context = {}
     return render(request, 'course/login.html',context)
 # logout a user
+@login_required(login_url='/login')
 def logoutUser(request):
     logout(request)
     return redirect('courses')
@@ -45,13 +50,8 @@ def index(request):
         raise Http404("course does not exist")
     return render (request,'course/courses.html',{"courses":courses})
 
+@login_required(login_url='/login')
 def student(request):
-     # form validation rules:
-    # if request.method ==POST:
-    #     form = StudentForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('students')
     try:
         students= Student.objects.all()
         students = Student.objects.order_by('date_added')
@@ -73,6 +73,8 @@ def registerStudent(request):
 
     return render (request,'course/register.html',{"form":form})
 
+@login_required(login_url='/login')
+# a user that is not registered cannot edit their profile
 def editStudent(request,pk):
     student = Student.objects.get(id=pk)
     form = StudentForm(instance=student)
@@ -88,6 +90,7 @@ def editStudent(request,pk):
     context = {'form':form}
     return render(request,'course/register.html',context)
 
+@login_required(login_url='/login')
 def deleteProfile(request,pk):
     student = Student.objects.get(id=pk)
     if request.method == 'POST':
@@ -98,7 +101,19 @@ def deleteProfile(request,pk):
     return render(request,'course/delete-profile.html')
 
 
-def userMessage(request):
-    userMessages = Messages.objects.all()
-    context = {'userMessages':userMessages}
-    return render(request,'course/user-message.html',context)
+@login_required(login_url='/login')
+def addMessage(request):
+    form = UserMessageForm()
+    if request.method == 'POST':
+        form = UserMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('messages')
+    return render (request,'course/add-message.html',{"form":form})
+
+
+@login_required(login_url='/login')
+def user_messages(request):
+    user_messages = UserMessage.objects.all()
+    user_messages = UserMessage.objects.order_by('date_added')
+    return render(request,'course/messages.html',{"user_messages":user_messages})

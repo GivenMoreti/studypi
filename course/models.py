@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 # Create your models here.
 COURSE_LEVELS = (
@@ -13,6 +14,7 @@ COURSES =(
     ("Azure","Azure"),
     ("AWS","AWS"),
     ("AI","Artificial Intelligence"),
+    ("EH","Ethical hacking"),
     
 )
 
@@ -44,7 +46,7 @@ class Student(models.Model):
     def __str__(self):
         return self.student_name    
     
-class Messages(models.Model):
+class UserMessage(models.Model):
     heading = models.CharField(max_length=300,null=True)
     text_message =models.TextField(max_length=3000, null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)

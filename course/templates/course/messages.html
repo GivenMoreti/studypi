@@ -1,0 +1,17 @@
+{% extends 'course/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Communication</h1>
+  {% for user_message in user_messages %}
+  <div class="texts-messages">
+  <p>Sender: {{user_message.user}}</p>
+  <p>Message header: {{user_message.heading}}</p>
+  <p> Message body: {{user_message.text_message}}</p>
+  <p>Date sent: {{user_message.date_added}}</p>
+</div>
+  {% endfor %}
+  <a href="{% url 'add-message' %}" class="btn btn-primary">Add message</a>
+{% endblock %}
+
+</div>

@@ -12,5 +12,6 @@ urlpatterns=[
     path('register-student/',views.registerStudent,name='register-student'),
     path('edit-student/<str:pk>/',views.editStudent,name='edit-student'),
     path('delete-profile/<str:pk>/',views.deleteProfile,name='delete-profile'),
-    path('messages/',views.userMessage,name='userMessages'),
+    path('messages/',views.user_messages,name='messages'),
+    path('add-message/',views.addMessage,name='add-message')
 ]

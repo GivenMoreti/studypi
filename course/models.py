@@ -13,8 +13,8 @@ COURSES =(
     ("IT","information Technology"),
     ("Azure","Azure"),
     ("AWS","AWS"),
-    ("AI","Artificial Intelligence"),
-    ("EH","Ethical hacking"),
+    ("Artificial Intelligence","Artificial Intelligence"),
+    ("Ethical hacking","Ethical hacking"),
     
 )
 

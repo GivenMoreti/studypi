@@ -35,6 +35,9 @@ def loginUser(request):
             messages.error(request,'username or password does not exist')
     context = {}
     return render(request, 'course/login.html',context)
+
+
+
 # logout a user
 @login_required(login_url='/login')
 def logoutUser(request):
@@ -49,6 +52,8 @@ def index(request):
     except Course.DoesNotExist:
         raise Http404("course does not exist")
     return render (request,'course/courses.html',{"courses":courses})
+
+
 
 @login_required(login_url='/login')
 def student(request):
@@ -83,9 +88,6 @@ def editStudent(request,pk):
         if form.is_valid():
             form.save()
             return redirect('students')
-
-
-
 
     context = {'form':form}
     return render(request,'course/register.html',context)

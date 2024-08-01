@@ -7,7 +7,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_display= ('course_name','course_description','date_added','date_edited',)
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display= ('student_name','course_name','username','study_level','date_added','date_edited','private_code',)
+    list_display= ('study_level','date_added','date_edited',)
 
 class UserMessageAdmin(admin.ModelAdmin):
     list_display= ('heading','text_message','user','date_added','date_edited',)
